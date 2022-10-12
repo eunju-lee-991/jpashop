@@ -39,7 +39,7 @@ public class OrderController {
                         @RequestParam("itemId") Long itemId,
                         @RequestParam("count") int count) {
 
-        // 조회는 크게 상관없지만 command성 로직에서는
+        // 조회는 크게 상관없지만 command 성 로직에서는
         // 컨트롤러에서 엔티티를 직접 넘기는 게 아니라
         // 식별자(id값)만 넘겨서 service에서 핵심 비즈니스 로직을 수행하는 것이 좋음
         // 그래야 엔티티가 영속성 컨텍스트에서 존재
