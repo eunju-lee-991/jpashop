@@ -33,7 +33,7 @@ public class MemberServiceTest {
         Long id = memberService.join(member);
         System.out.println("amjse뭔데");
         //then
-        assertEquals(member, memberRepository.fineOne(id));
+        assertEquals(member, memberRepository.findOne(id));
 
     }
 

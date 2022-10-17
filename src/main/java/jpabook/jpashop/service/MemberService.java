@@ -2,9 +2,7 @@ package jpabook.jpashop.service;
 
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.repository.MemberRepository;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -50,6 +48,12 @@ public class MemberService {
     }
 
     public Member findOne(Long memberId) {
-        return memberRepository.fineOne(memberId);
+        return memberRepository.findOne(memberId);
+    }
+
+    @Transactional
+    public void update(Long id, String name) { // member를 반환하지 않는 이유. commmand와 query를 구분. member반환하면 업데이트 command에서 조회를 하는 거니까??
+        Member member = memberRepository.findOne(id); // 변경 감지. 영속성 컨텍스트에서 member 찾음
+        member.setName(name);
     }
 }

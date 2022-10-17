@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 
@@ -22,7 +21,7 @@ public class MemberRepository  {
         em.persist(member);
     }
 
-    public Member fineOne(Long id) {
+    public Member findOne(Long id) {
         return em.find(Member.class, id); //단건조회. (타입, pk)
     }
 

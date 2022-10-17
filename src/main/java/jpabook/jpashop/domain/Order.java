@@ -21,10 +21,11 @@ public class Order {
     @Column(name = "order_id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY) // 지연로딩이기 떄문에 DB에서 member를 가져오지 않음. proxy 사용해야함..?
     @JoinColumn(name = "member_id")
     private Member member; // order가 연관관계 주인!
 
+    // 1 대 다는 기본이 lazy loading?
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
 
